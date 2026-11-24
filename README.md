@@ -24,3 +24,8 @@ Të gjitha të dhënat janë te `config/wedding.json`.
 - `public/img/couple.jpg`, `couple-2.jpg` – prerje nga foto e çiftit (`assets/pending/couple-original.jpg`). Private: përjashtuar në `.gitignore`.
 
 Nuk është bërë asnjë deploy ose push.
+
+## Imazhi i parapamjes (link preview)
+- `app/opengraph-image.jpg` / `app/twitter-image.jpg` (1200×630): zarfi + "Ftesë për fejesën tonë", emrat dhe data.
+- Rigjenerohet me `npm run og` (lexon `config/wedding.json`; kërkon ffmpeg).
+- Kur të keni domenin përfundimtar, vendosni `NEXT_PUBLIC_SITE_URL=https://domeni-juaj` (në Vercel merret automatikisht).
