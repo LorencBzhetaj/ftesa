@@ -1,0 +1,57 @@
+{
+  "locale": "sq-AL",
+  "event": "fejesë",
+  "confirmed": true,
+  "bride": "Melisa",
+  "groom": "Adrian",
+  "displayNames": "Adrian & Melisa",
+  "initials": "A & M",
+  "date": "2026-12-27",
+  "time": "13:00",
+  "timezone": "Europe/Tirane",
+  "venue": {
+    "name": "Bar Restorant Vëllezërit Dushkaj",
+    "address": null,
+    "mapsUrl": "https://www.google.com/maps/place/Bar+restorant+Vellezrit+Dushkaj/@42.2209578,19.4449264,17z/data=!3m1!4b1!4m6!3m5!1s0x134dfb8419b87709:0xb135dccf432ba24!8m2!3d42.2209539!4d19.4475013!16s%2Fg%2F11j3s26grc",
+    "image": "/img/dushkaj.jpg"
+  },
+  "timeline": [
+    {
+      "time": "13:00",
+      "label": "Mikpritja",
+      "icon": "toast"
+    }
+  ],
+  "invitationText": "Jemi të lumtur\ntë ju ftojmë në fejesën tonë",
+  "closingText": "Prania juaj\ndo ta bëjë këtë ditë\nedhe më të veçantë për ne.",
+  "music": null,
+  "demo": {
+    "date": "2026-12-27",
+    "invitationText": "Jemi të lumtur\ntë ju ftojmë në fejesën tonë",
+    "closingText": "Prania juaj\ndo ta bëjë këtë ditë\nedhe më të veçantë për ne.",
+    "timeline": [
+      {
+        "time": "13:00",
+        "label": "Mikpritja",
+        "icon": "toast"
+      },
+      {
+        "time": "14:00",
+        "label": "Unazat",
+        "icon": "rings"
+      },
+      {
+        "time": "15:00",
+        "label": "Dreka",
+        "icon": "dinner"
+      },
+      {
+        "time": "17:00",
+        "label": "Festa",
+        "icon": "music"
+      }
+    ]
+  },
+  "utcOffset": "+01:00",
+  "photo": "/img/couple-2.jpg"
+}

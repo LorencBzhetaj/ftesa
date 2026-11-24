@@ -1,0 +1,41 @@
+import raw from "./config/wedding.json";
+
+export type TimelineItem = { time: string; label: string; icon?: string };
+
+const MONTHS = ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"];
+const DAYS = ["E diel", "E hënë", "E martë", "E mërkurë", "E enjte", "E premte", "E shtunë"];
+
+/** Real values from config win; demo values are used only as clearly labelled preview data. */
+export function getWedding() {
+  const c = raw;
+  const dateIsDemo = !c.date;
+  const timelineIsDemo = c.timeline.length === 0;
+  const iso = (c.date ?? c.demo.date) as string;
+  const [y, m, d] = iso.split("-").map(Number);
+  const wd = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+  return {
+    names: c.displayNames ?? `${c.groom} & ${c.bride}`,
+    first: c.groom,
+    second: c.bride,
+    time: c.time,
+    iso,
+    year: y,
+    month: m,
+    day: d,
+    monthName: MONTHS[m - 1],
+    date: `${d} ${MONTHS[m - 1]} ${y}`,
+    weekday: DAYS[wd],
+    /** event start as an absolute timestamp string, e.g. 2026-12-27T13:00:00+01:00 */
+    startsAt: `${iso}T${c.time}:00${c.utcOffset ?? "+01:00"}`,
+    dateIsDemo,
+    timeline: (timelineIsDemo ? c.demo.timeline : c.timeline) as TimelineItem[],
+    timelineIsDemo,
+    invitationText: (c.invitationText ?? c.demo.invitationText) as string,
+    closingText: (c.closingText ?? c.demo.closingText) as string,
+    textIsDemo: !c.invitationText,
+    venue: c.venue as { name: string; address: string | null; mapsUrl: string | null; image: string | null },
+    photo: (c.photo ?? null) as string | null,
+    confirmed: c.confirmed,
+  };
+}
+export type Wedding = ReturnType<typeof getWedding>;

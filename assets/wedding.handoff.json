@@ -1,0 +1,45 @@
+{
+  "locale": "sq-AL",
+  "confirmed": false,
+  "bride": null,
+  "groom": null,
+  "initials": null,
+  "date": null,
+  "time": null,
+  "timezone": null,
+  "venue": {
+    "name": "Dushkaj",
+    "address": null,
+    "mapsUrl": null,
+    "image": "assets/approved/dushkaj-edited.png"
+  },
+  "timeline": [],
+  "invitationText": null,
+  "closingText": null,
+  "couplePhoto": null,
+  "music": null,
+  "demo": {
+    "bride": "Elira",
+    "groom": "Arben",
+    "date": "2027-07-18",
+    "time": "19:00",
+    "timeline": [
+      {
+        "time": "19:00",
+        "label": "Mikpritja"
+      },
+      {
+        "time": "20:00",
+        "label": "Ceremonia"
+      },
+      {
+        "time": "21:00",
+        "label": "Darka"
+      },
+      {
+        "time": "23:00",
+        "label": "Festa"
+      }
+    ]
+  }
+}

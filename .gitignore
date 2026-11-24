@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+assets/pending
+public/img/couple.jpg
+public/img/couple-2.jpg
+.claude
+*.tsbuildinfo

@@ -1,0 +1,26 @@
+# Ftesë fejese — Adrian & Melisa
+
+Ftesë digjitale (mobile-first) e ndërtuar sipas udhëzimeve të `Royal-Wedding-Codex-Handoff.zip` (shiko `docs/`).
+
+## Nisja lokale
+```
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # build prodhimi
+npm run typecheck
+```
+
+## Të dhënat
+Të gjitha të dhënat janë te `config/wedding.json`.
+- Emrat: Adrian & Melisa · Data: 27 Dhjetor 2026 · Ora: 13:00 · Lokali: Bar Restorant Vëllezërit Dushkaj (link Google Maps)
+- `timeline`, tekstet: ende **null** → faqja tregon vlera shembull me etiketën "shembull · për t'u konfirmuar".
+- Butoni "Shiko në Hartë" shfaqet vetëm kur plotësohet `venue.mapsUrl`.
+- Kur gjithçka konfirmohet, vendos `"confirmed": true` (heq shiritin "Parapamje lokale").
+
+## Asetet
+- `public/img/envelope.jpg` – zarfi i miratuar; `envelope-body.jpg` – i njëjti me vulën e retushuar te xhepi (shtresë e veçantë).
+- `public/img/dushkaj.jpg` – foto reale e lokalit (seksioni Lokacioni).
+- Fotoja e çiftit: `photo` në `config/wedding.json` (tani `public/img/couple-2.jpg`).
+- `public/img/couple.jpg`, `couple-2.jpg` – prerje nga foto e çiftit (`assets/pending/couple-original.jpg`). Private: përjashtuar në `.gitignore`.
+
+Nuk është bërë asnjë deploy ose push.
