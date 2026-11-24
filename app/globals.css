@@ -6,7 +6,7 @@
   --brown: #493321;
   --muted: #79654f;
   --script: var(--font-script), "Great Vibes", cursive;
-  --names: var(--font-names), "Playfair Display", Georgia, serif;
+  --names: var(--font-serif), Georgia, serif;
   --serif: var(--font-serif), "Cormorant Garamond", Georgia, serif;
   --col: min(100vw, 560px);
 }
@@ -298,7 +298,7 @@ button { font: inherit; color: inherit; }
 .cal-add:hover { color: #e9cd8c; }
 
 /* ───────────── Names on one line (Cinzel) ───────────── */
-:root { --display: var(--font-display), "Cinzel", "Trajan Pro", Georgia, serif; }
+:root { --display: var(--font-serif), Georgia, serif; }
 .names {
   font-family: var(--display); font-style: normal; font-weight: 500;
   white-space: nowrap; letter-spacing: .05em;
