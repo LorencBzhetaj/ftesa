@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import cfg from "@/config/wedding.json";
 import "./globals.css";
 
 // Fonts are bundled with the project (OFL, from @fontsource) so builds never depend on Google Fonts.
@@ -34,7 +35,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
 
-const title = "Ftesë për fejesën tonë — Adrian & Melisa";
+const title = `Ftesë për fejesën tonë — ${cfg.groom} & ${cfg.bride}`;
 const description = "27 Dhjetor 2026 · Ora 13:00 · Hapni zarfin për ftesën";
 
 export const metadata: Metadata = {
