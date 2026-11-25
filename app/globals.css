@@ -445,3 +445,24 @@ button { font: inherit; color: inherit; }
 .signature { margin: 22px 0 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .signature-pre { font-style: italic; font-size: 19px; color: var(--muted); letter-spacing: .02em; }
 .signature-name { font-family: var(--script); font-size: clamp(34px, 10vw, 42px); line-height: 1.15; color: var(--gold); }
+
+/* ───────────── Quotes over the rings photo ───────────── */
+.quotes {
+  position: relative; overflow: hidden; isolation: isolate;
+  margin: 18px 34px; padding: 44px 26px 34px; border-radius: 22px;
+  border: 1px solid rgba(207, 174, 116, .6);
+  box-shadow: 0 18px 36px rgba(45, 30, 18, .35);
+  background: #2e2116;
+}
+.block.quotes::before { display: block; content: ""; position: absolute; inset: 0; z-index: -2; width: auto; height: auto;
+  background: url(/img/rings.jpg) 50% 44% / cover no-repeat; }
+.block.quotes::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 30% at 50% 50%, rgba(46, 33, 22, .2), transparent 70%),
+    linear-gradient(180deg, rgba(36, 25, 16, .6), rgba(36, 25, 16, .32) 40%, rgba(36, 25, 16, .4) 60%, rgba(36, 25, 16, .72));
+}
+.quotes .quote p { color: #f8ecd4; text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
+.quotes .quote-mark { color: #e9cd8c; }
+.quotes .quote-sep { background: radial-gradient(circle, #e9cd8c 2.6px, transparent 3px) center / 10px 10px no-repeat; }
+.quotes .quote-sep::before, .quotes .quote-sep::after { background: linear-gradient(90deg, transparent, #e9cd8c); }
+.quotes .divider { color: #e9cd8c; }

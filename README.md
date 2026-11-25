@@ -29,3 +29,6 @@ Nuk është bërë asnjë deploy ose push.
 - `app/opengraph-image.jpg` / `app/twitter-image.jpg` (1200×630): zarfi + "Ftesë për fejesën tonë", emrat dhe data.
 - Rigjenerohet me `npm run og` (lexon `config/wedding.json`; kërkon ffmpeg).
 - Kur të keni domenin përfundimtar, vendosni `NEXT_PUBLIC_SITE_URL=https://domeni-juaj` (në Vercel merret automatikisht).
+
+## Kredite
+- `public/img/rings.jpg` — foto nga Gladys Aguayo në Unsplash (https://unsplash.com/photos/a-close-up-of-a-person-rT_O_U5u-10), Unsplash License; e tonuar në sepia për ftesën.
