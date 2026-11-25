@@ -91,7 +91,6 @@ export default function EnvelopeIntro({ w, onDone, reducedMotion }: Props) {
                 <i className="amp">&amp;</i>
                 {w.second[0]}
               </span>
-              <span className="card-kicker">Ftesë fejese</span>
               <span className="card-names">
                 {w.first} <span className="amp">&amp;</span> {w.second}
               </span>
@@ -109,11 +108,6 @@ export default function EnvelopeIntro({ w, onDone, reducedMotion }: Props) {
         </div>
 
         <div className="env-cta">
-          <p className="env-title">
-            Ftesë për
-            <br />
-            fejesën tonë
-          </p>
           <svg className="divider small" viewBox="0 0 120 12" aria-hidden="true">
             <path d="M2 6H50M70 6H118" stroke="currentColor" strokeWidth="1" />
             <path d="M60 1l4 5-4 5-4-5z" fill="currentColor" />

@@ -53,5 +53,12 @@
     ]
   },
   "utcOffset": "+01:00",
-  "photo": "/img/couple-2.jpg"
+  "photo": "/img/couple-2.jpg",
+  "quotes": [
+    "Nga një rastësi e bukur, në një dashuri të përjetshme.",
+    "Sot bashkojmë ëndrrat, nesër ndërtojmë familjen.",
+    "Dy shpirtra të gjetur, një rrugëtim i bekuar nga Zoti.",
+    "Ti je përgjigjja e lutjeve të mia dhe ëndrra që dua ta jetoj çdo ditë.",
+    "Sot nuk festojmë vetëm dashurinë, por dhe fillimin e një jete të re së bashku."
+  ]
 }

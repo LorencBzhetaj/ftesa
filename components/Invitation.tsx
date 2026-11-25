@@ -112,6 +112,21 @@ export default function Invitation({ w }: { w: Wedding }) {
             </section>
           )}
 
+          {w.quotes.length > 0 && (
+            <section className="block quotes" aria-label="Fjalët tona">
+              <span className="quote-mark reveal" aria-hidden="true">
+                “
+              </span>
+              {w.quotes.map((q, i) => (
+                <div key={i} className="quote reveal">
+                  {i > 0 && <span className="quote-sep" aria-hidden="true" />}
+                  <p>{q}</p>
+                </div>
+              ))}
+              <Divider className="reveal" />
+            </section>
+          )}
+
           <DateCalendar w={w} />
 
           <section className="block program" aria-labelledby="prog">

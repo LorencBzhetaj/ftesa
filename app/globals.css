@@ -414,3 +414,26 @@ button { font: inherit; color: inherit; }
   box-shadow: 0 0 0 7px var(--paper), 0 0 0 8px rgba(181, 138, 73, .55), 0 26px 44px rgba(73, 51, 33, .32);
 }
 .featured-inner img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; border-radius: 999px 999px 10px 10px; border: 2px solid #fff8e8; }
+
+/* ───────────── Love quotes ───────────── */
+.quotes { padding-top: 26px; padding-bottom: 26px; }
+.quote-mark {
+  display: block; font-family: var(--script); font-size: 84px; line-height: .6; height: 38px;
+  color: var(--gold); opacity: .85;
+}
+.quote p {
+  margin: 0 auto; max-width: 300px;
+  font-style: italic; font-weight: 500; font-size: clamp(19px, 5.3vw, 22px); line-height: 1.45; color: #5a4230;
+}
+/* small gold dot flanked by fading hairlines */
+.quote-sep {
+  display: block; position: relative; width: 56px; height: 10px; margin: 16px auto;
+  background: radial-gradient(circle, #c9a05c 2.6px, transparent 3px) center / 10px 10px no-repeat;
+}
+.quote-sep::before, .quote-sep::after {
+  content: ''; position: absolute; top: 50%; width: 20px; height: 1px;
+  background: linear-gradient(90deg, transparent, #b58a49);
+}
+.quote-sep::before { left: 0; }
+.quote-sep::after { right: 0; transform: scaleX(-1); }
+.quotes .divider { margin-top: 26px; }

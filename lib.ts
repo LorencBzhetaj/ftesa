@@ -35,6 +35,7 @@ export function getWedding() {
     textIsDemo: !c.invitationText,
     venue: c.venue as { name: string; address: string | null; mapsUrl: string | null; image: string | null },
     photo: (c.photo ?? null) as string | null,
+    quotes: ((c as { quotes?: string[] }).quotes ?? []) as string[],
     confirmed: c.confirmed,
   };
 }
