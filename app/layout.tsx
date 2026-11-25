@@ -35,7 +35,8 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
 
-const title = `Ftesë për fejesën tonë — ${cfg.groom} & ${cfg.bride}`;
+const shareTitle = (cfg as { shareTitle?: string }).shareTitle ?? "Ftesë për fejesën tonë";
+const title = `${shareTitle} — ${cfg.groom} & ${cfg.bride}`;
 const description = "27 Dhjetor 2026 · Ora 13:00 · Hapni zarfin për ftesën";
 
 export const metadata: Metadata = {

@@ -12,6 +12,9 @@ const cfg = JSON.parse(read("config/wedding.json"));
 
 const MONTHS = ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"];
 const [y, m, d] = cfg.date.split("-").map(Number);
+const shareTitle = cfg.shareTitle ?? "Ftesë për fejesën tonë";
+const heading = cfg.shareHeading ?? ["FTESË PËR", "FEJESËN TONË"];
+const headSize = heading.length > 2 ? 44 : 54;
 const dateLine = `${d} ${MONTHS[m - 1]} ${y}  ·  Ora ${cfg.time}`;
 
 const envelope = `data:image/jpeg;base64,${read("public/img/envelope.jpg").toString("base64")}`;
@@ -44,16 +47,15 @@ const tree = h("div", { width: W, height: H, display: "flex", position: "relativ
     boxShadow: "0 12px 30px rgba(73,51,33,.18)",
   }, [
     h("div", { position: "absolute", left: 10, top: 10, right: 10, bottom: 10, border: "1px solid rgba(181,138,73,.45)", borderRadius: 3, display: "flex" }, []),
-    h("div", { fontFamily: "Cormorant", fontWeight: 600, fontSize: 54, letterSpacing: 6, color: "#493321", lineHeight: 1.1, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, [
-      h("span", {}, "FTESË PËR"),
-      h("span", {}, "FEJESËN TONË"),
+    h("div", { fontFamily: "Cormorant", fontWeight: 600, fontSize: headSize, letterSpacing: heading.length > 2 ? 5 : 6, color: "#493321", lineHeight: 1.1, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, [
+      ...heading.map((line) => h("span", {}, line)),
     ]),
-    h("div", { display: "flex", alignItems: "center", margin: "22px 0 10px" }, [
+    h("div", { display: "flex", alignItems: "center", margin: heading.length > 2 ? "16px 0 6px" : "22px 0 10px" }, [
       h("div", { width: 90, height: 1.5, background: "#b58a49" }, []),
       h("div", { width: 10, height: 10, background: "#b58a49", transform: "rotate(45deg)", margin: "0 12px" }, []),
       h("div", { width: 90, height: 1.5, background: "#b58a49" }, []),
     ]),
-    h("div", { fontFamily: "Pinyon", fontSize: 66, color: "#6b4a2c", lineHeight: 1.25, display: "flex" }, `${cfg.groom} & ${cfg.bride}`),
+    h("div", { fontFamily: "Pinyon", fontSize: heading.length > 2 ? 60 : 66, color: "#6b4a2c", lineHeight: 1.25, display: "flex" }, `${cfg.groom} & ${cfg.bride}`),
     h("div", { fontFamily: "Cormorant", fontWeight: 500, fontSize: 30, color: "#79654f", marginTop: 8, display: "flex" }, dateLine),
   ]),
 ]);
@@ -66,6 +68,6 @@ writeFileSync(tmp, png);
 execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", tmp, "-q:v", "3", fileURLToPath(out)]);
 rmSync(tmp);
 copyFileSync(out, new URL("app/twitter-image.jpg", root));
-writeFileSync(new URL("app/opengraph-image.alt.txt", root), `Ftesë për fejesën tonë — ${cfg.groom} & ${cfg.bride}, ${dateLine}`);
-writeFileSync(new URL("app/twitter-image.alt.txt", root), `Ftesë për fejesën tonë — ${cfg.groom} & ${cfg.bride}, ${dateLine}`);
+writeFileSync(new URL("app/opengraph-image.alt.txt", root), `${shareTitle} — ${cfg.groom} & ${cfg.bride}, ${dateLine}`);
+writeFileSync(new URL("app/twitter-image.alt.txt", root), `${shareTitle} — ${cfg.groom} & ${cfg.bride}, ${dateLine}`);
 console.log("OG image written:", readFileSync(out).length, "bytes");

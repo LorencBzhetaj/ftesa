@@ -24,6 +24,12 @@
   ],
   "invitationText": "Jemi të lumtur\ntë ju ftojmë në fejesën e djalit tonë",
   "closingText": "Prania juaj\ndo ta bëjë këtë ditë\nedhe më të veçantë për ne.",
+  "shareTitle": "Ftesë për fejesën e djalit tonë",
+  "shareHeading": [
+    "FTESË PËR",
+    "FEJESËN E",
+    "DJALIT TONË"
+  ],
   "music": null,
   "demo": {
     "date": "2026-12-27",
