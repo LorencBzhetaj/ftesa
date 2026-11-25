@@ -466,3 +466,6 @@ button { font: inherit; color: inherit; }
 .quotes .quote-sep { background: radial-gradient(circle, #e9cd8c 2.6px, transparent 3px) center / 10px 10px no-repeat; }
 .quotes .quote-sep::before, .quotes .quote-sep::after { background: linear-gradient(90deg, transparent, #e9cd8c); }
 .quotes .divider { color: #e9cd8c; }
+
+/* main couple photo: keep both faces inside the arch */
+.featured:not(.featured-more) .featured-inner img { object-position: 50% 12%; }
