@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Wedding } from "@/lib";
@@ -22,6 +22,30 @@ function Lines({ text }: { text: string }) {
         </span>
       ))}
     </>
+  );
+}
+
+/** Arched gold frame used for the couple's photos (the venue keeps its own rectangular frame). */
+function PhotoFrame({ src, alt, className = "", eager = false }: { src: string; alt: string; className?: string; eager?: boolean }) {
+  const id = useId().replace(/:/g, "");
+  return (
+    <figure className={"featured-frame " + className}>
+      <svg className="featured-orn" viewBox="0 0 120 40" aria-hidden="true">
+        <defs>
+          <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#8c6428" />
+            <stop offset=".45" stopColor="#f3dda3" />
+            <stop offset="1" stopColor="#a87b38" />
+          </linearGradient>
+        </defs>
+        <path d="M30 18 C20 10 8 12 2 20 M90 18 C100 10 112 12 118 20" fill="none" stroke={`url(#${id})`} strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M60 4 C66 14 76 18 88 18 C78 22 68 26 60 36 C52 26 42 22 32 18 C44 18 54 14 60 4Z" fill={`url(#${id})`} />
+        <circle cx="60" cy="20" r="4" fill="#fff6dc" stroke="#b58a49" strokeWidth="1" />
+      </svg>
+      <span className="featured-inner">
+        <img src={src} alt={alt} loading={eager ? "eager" : "lazy"} />
+      </span>
+    </figure>
   );
 }
 
@@ -54,7 +78,7 @@ export default function Invitation({ w }: { w: Wedding }) {
         .fromTo(".lead .line", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.15 }, 0.15)
         .fromTo(".names .name-line", { autoAlpha: 0, y: 22, filter: "blur(6px)" }, { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 1.2, stagger: 0.22 }, 0.5)
         .fromTo(".intro-copy .divider", { autoAlpha: 0, scaleX: 0.3 }, { autoAlpha: 1, scaleX: 1, duration: 1 }, 1.2)
-        .fromTo(".featured-frame", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 1.4 }, 1.4);
+        .fromTo(".intro-copy ~ .featured:not(.featured-more) .featured-frame", { autoAlpha: 0, y: 40, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 1.4 }, 1.4);
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
         gsap.from(el, {
           autoAlpha: 0,
@@ -92,23 +116,7 @@ export default function Invitation({ w }: { w: Wedding }) {
 
           {w.photo && (
             <section className="block featured" aria-label="Foto e çiftit">
-              <figure className="featured-frame intro-in">
-                <svg className="featured-orn" viewBox="0 0 120 40" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="fo" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stopColor="#8c6428" />
-                      <stop offset=".45" stopColor="#f3dda3" />
-                      <stop offset="1" stopColor="#a87b38" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M30 18 C20 10 8 12 2 20 M90 18 C100 10 112 12 118 20" fill="none" stroke="url(#fo)" strokeWidth="1.6" strokeLinecap="round" />
-                  <path d="M60 4 C66 14 76 18 88 18 C78 22 68 26 60 36 C52 26 42 22 32 18 C44 18 54 14 60 4Z" fill="url(#fo)" />
-                  <circle cx="60" cy="20" r="4" fill="#fff6dc" stroke="#b58a49" strokeWidth="1" />
-                </svg>
-                <span className="featured-inner">
-                  <img src={w.photo} alt={`${w.first} dhe ${w.second}`} />
-                </span>
-              </figure>
+              <PhotoFrame src={w.photo} alt={`${w.first} dhe ${w.second}`} className="intro-in" eager />
             </section>
           )}
 
@@ -124,6 +132,12 @@ export default function Invitation({ w }: { w: Wedding }) {
                 </div>
               ))}
               <Divider className="reveal" />
+            </section>
+          )}
+
+          {w.photos[0] && (
+            <section className="block featured featured-more" aria-label="Foto e çiftit">
+              <PhotoFrame src={w.photos[0]} alt={`${w.first} dhe ${w.second}`} className="reveal" />
             </section>
           )}
 
@@ -158,12 +172,24 @@ export default function Invitation({ w }: { w: Wedding }) {
             <Divider className="reveal" />
           </section>
 
+          {w.photos[1] && (
+            <section className="block featured featured-more" aria-label="Foto e çiftit">
+              <PhotoFrame src={w.photos[1]} alt={`${w.first} dhe ${w.second}`} className="reveal" />
+            </section>
+          )}
+
           <section className="block closing" aria-label="Mesazhi përmbyllës">
             <Corner side="left" />
             <Corner side="right" />
             <p className="closing-text reveal">
               <Lines text={w.closingText} />
             </p>
+            {w.signature && (
+              <p className="signature reveal">
+                <span className="signature-pre">{w.signature.lead}</span>
+                <span className="signature-name">{w.signature.name}</span>
+              </p>
+            )}
             <Icon name="heart" className="reveal heart" />
             <p className="sign reveal">
               <span className="name-line">{w.first}</span>

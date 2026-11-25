@@ -60,5 +60,13 @@
     "Dy shpirtra të gjetur, një rrugëtim i bekuar nga Zoti.",
     "Ti je përgjigjja e lutjeve të mia dhe ëndrra që dua ta jetoj çdo ditë.",
     "Sot nuk festojmë vetëm dashurinë, por dhe fillimin e një jete të re së bashku."
-  ]
+  ],
+  "photos": [
+    "/img/couple-walk.jpg",
+    "/img/couple-back.jpg"
+  ],
+  "signature": {
+    "lead": "Me respekt,",
+    "name": "Familja Çekaj"
+  }
 }
